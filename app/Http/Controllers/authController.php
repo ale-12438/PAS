@@ -22,9 +22,9 @@ class authController extends Controller
             $user = Auth::user();
 
             if ($user->role === 'admin') {
-                return redirect()->route('admin.index')->with('success', 'Login sebagai admin');
+                return redirect()->route('books.index')->with('success', 'Login sebagai admin');
             } else {
-                return redirect()->route('books.index')->with('success', 'Login sebagai user');
+                return redirect()->route('users.index')->with('success', 'Login sebagai user');
             }
         }
 

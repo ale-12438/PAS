@@ -149,6 +149,8 @@
                         <th>Penulis</th>
                         <th>Tahun</th>
                         <th>Penerbit</th>
+                        <th>Gambar</th>
+                        <th>Deskripsi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -159,6 +161,8 @@
                         <td>{{ $book->author }}</td>
                         <td>{{ $book->year }}</td>
                         <td>{{ $book->publisher }}</td>
+                        <td>{{$book->gambar}}</td>
+                        <td>{{$book->description}}</td>
                         <td>
                             <a href="{{ route('books.edit', $book->id) }}" style="color: #3498db;">Edit</a>
                             <form action="{{ route('books.destroy', $book->id) }}" method="POST" style="display:inline">

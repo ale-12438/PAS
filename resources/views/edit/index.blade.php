@@ -117,6 +117,16 @@
             </div>
 
             <div class="form-group">
+                <label for="gambar">Gambar</label>
+                <input type="text" name="gambar"  value="{{ $book->gambar }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Deskripsi</label>
+                <input type="text" name="description"  value="{{ $book->description }}" required>
+            </div>
+
+            <div class="form-group">
                 <button type="submit">Update</button>
             </div>
         </form>

@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\registerController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,7 @@ Route::get('/', function () {
 
     
 });
-Route::resource('books', BookController::class);
+Route::resource('books', AdminController::class);
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,12 +47,19 @@ Route::middleware('auth')->group(function(){
     //     return view('dashboard', compact('user'));
     // })->name('dashboard')->middleware('auth');
     
-    Route::get('/books', [BookController::class, 'index'])->name('books.index');
-    Route::get('/create', [BookController::class, 'create'])->name('books.create');
-    Route::post('/create', [BookController::class, 'store'])->name('books.store');
-    Route::delete('/books/{id}', [BookController::class, 'destroy'])->name('books.destroy');
+    Route::get('/books', [AdminController::class, 'index'])->name('books.index');
+    Route::get('/create', [AdminController::class, 'create'])->name('books.create');
+    Route::post('/create', [AdminController::class, 'store'])->name('books.store');
+    Route::delete('/books/{id}', [AdminController::class, 'destroy'])->name('books.destroy');
+    Route::get('/users/books/{book}', [UserController::class, 'showbook'])->name('users.books.show');
+
 
     Route::post('logout', [authController::class,
     'logout'])->name('logout');
 
 });
+
+
+    
+Route::get('/users', [BookController::class, 'index'])->name('users.index');
+

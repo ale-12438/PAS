@@ -17,6 +17,8 @@ return new class extends Migration
         $table->string('author');
         $table->integer('year');
         $table->string('publisher');
+        $table->string('gambar');
+        $table->string('description');
         $table->timestamps();
 });
 
